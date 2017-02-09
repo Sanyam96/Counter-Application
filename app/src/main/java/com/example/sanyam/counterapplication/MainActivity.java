@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     Switch s;
     TextView tv;
-    Button b1;
+    Button b1,b2;
     int counterVar = 0;
 
     @Override
@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         tv = (TextView) findViewById(R.id.textView2);
         s = (Switch) findViewById(R.id.switch1);
         b1 = (Button) findViewById(R.id.button1);
+        b2 = (Button) findViewById(R.id.button2);
 
         s.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,5 +49,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        b2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                counterVar = 0;
+                tv.setText(0+"");
+            }
+        });
     }
 }
