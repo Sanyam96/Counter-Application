@@ -14,6 +14,8 @@ public class MainActivity extends AppCompatActivity {
 
     Switch s;
     TextView tv;
+    Button b1;
+    int counterVar = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         tv = (TextView) findViewById(R.id.textView2);
         s = (Switch) findViewById(R.id.switch1);
+        b1 = (Button) findViewById(R.id.button1);
 
         s.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +35,14 @@ public class MainActivity extends AppCompatActivity {
                     s.setText("Disabled");
                 }
 
+            }
+        });
+
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                counterVar++;
+                tv.setText(counterVar+"");
             }
         });
 
