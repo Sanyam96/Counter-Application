@@ -30,9 +30,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if( s.isChecked() ){
                     s.setText("Enabled");
+                    b1.setEnabled(true);
                 }
                 else{
                     s.setText("Disabled");
+                    b1.setEnabled(false);
                 }
 
             }
