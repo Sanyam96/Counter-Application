@@ -6,16 +6,38 @@
         android:id="@+id/set"
         android:orderInCategory="100"
         android:title="Settings"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/help"
-        android:orderInCategory="100"
-        android:title="Help"
-        app:showAsAction="never" />
+        android:icon="@android:drawable/btn_star_big_on"
+        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cont"
         android:orderInCategory="100"
         android:title="Contact"
         app:showAsAction="never" />
+
+    <item android:id="@+id/new_game"
+        android:icon="@android:drawable/ic_menu_recent_history"
+        android:title="new_game"
+        app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/help"
+        android:icon="@android:drawable/ic_menu_help"
+        android:title="help"
+        app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/file"
+        android:title="file"
+        app:showAsAction="never">
+        <!-- "file" submenu -->
+        <menu>
+            <item android:id="@+id/create_new"
+                android:title="create_new"
+                app:showAsAction="never"/>
+            <item android:id="@+id/open"
+                android:title="open"
+                app:showAsAction="never"/>
+        </menu>
+    </item>
+
+
 
 </menu>

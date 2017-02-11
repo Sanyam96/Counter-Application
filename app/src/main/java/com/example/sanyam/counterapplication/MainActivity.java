@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -17,11 +18,6 @@ public class MainActivity extends AppCompatActivity {
     TextView tv;
     Button b1,b2;
     int counterVar = 0;
-
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,5 +60,27 @@ public class MainActivity extends AppCompatActivity {
                 tv.setText(0+"");
             }
         });
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.new_game:
+                Toast.makeText(MainActivity.this, "game", Toast.LENGTH_SHORT).show();
+                //newGame();
+                return true;
+            case R.id.help:
+                Toast.makeText(MainActivity.this, "help", Toast.LENGTH_SHORT).show();
+                //showHelp();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
