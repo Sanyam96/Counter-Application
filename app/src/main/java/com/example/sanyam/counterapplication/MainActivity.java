@@ -1,5 +1,7 @@
 package com.example.sanyam.counterapplication;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -18,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
     TextView tv;
     Button b1,b2;
     int counterVar = 0;
+    SharedPreferences sharedpreferences;
+    static final String MyPREFERENCES = "MyPrefs" ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         s = (Switch) findViewById(R.id.switch1);
         b1 = (Button) findViewById(R.id.button1);
         b2 = (Button) findViewById(R.id.button2);
+        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        public static final String countt = "countt";
 
 
 
@@ -49,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 counterVar++;
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.putString(countt,counterVar+"");
                 tv.setText(counterVar+"");
             }
         });
