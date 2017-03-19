@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     int counterVar = 0;
     SharedPreferences sharedpreferences;
     static final String MyPREFERENCES = "MyPrefs" ;
+    public static final String totalCount = "tc";
 
 
     @Override
@@ -33,13 +34,14 @@ public class MainActivity extends AppCompatActivity {
         b1 = (Button) findViewById(R.id.button1);
         b2 = (Button) findViewById(R.id.button2);
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-        public static final String countt = "countt";
+        //final String countt = "countt";
 
 
 
         s.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if( s.isChecked() ){
                     s.setText("Enabled");
                     b1.setEnabled(true);
@@ -57,10 +59,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 counterVar++;
                 SharedPreferences.Editor editor = sharedpreferences.edit();
-                editor.putString(countt,counterVar+"");
+                editor.putString(totalCount,counterVar+"");
                 tv.setText(counterVar+"");
+                editor.commit();
             }
         });
+
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putString(totalCount,counterVar+"");
+        tv.setText(counterVar+"");
+        editor.commit();
 
         b2.setOnClickListener(new View.OnClickListener(){
             @Override
